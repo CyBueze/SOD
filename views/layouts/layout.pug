@@ -1,0 +1,23 @@
+doctype html
+html(lang="en" x-data)
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    title= title
+
+    // TailwindCSS + DaisyUI
+    link(href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css")
+    script(src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4")
+
+    // HTMX
+    script(src="https://unpkg.com/htmx.org@1.9.4")
+
+    // Alpine.js
+    script(src="https://unpkg.com/alpinejs" defer)
+  
+  body
+    include ../components/navbar
+    //- include ../components/hero
+    div(class="px-8 pt-8")
+      block content
