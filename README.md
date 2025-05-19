@@ -1,6 +1,22 @@
-# pov
+# School of Destiny
 
-a [Sails v1](https://sailsjs.com) application
+The Official Website for School of Destiny International.
+
+# Tech Stack
+
+This website was built using the HATS stack (HTMX, AlpineJs, Tailwindcss and SailsJs)
+
+Reason: This seemed like the easiest tech stack for anyone who has a knowledge of HTML, CSS and JavaScript. It is not framework specific and the learning curve is just a few days (rather than months, as seen with "modern" JavaScript frameworks such as React, Vue and Angular).
+
+Besides, this stack is as modern as modern can be. It's minimalist in approach and prioritises good developer experience over following the trends.
+
+The backend is written is SailsJs, which is a JavaScript backend framework built on Express.js. It's beautiful and a joy to work with. I chose it because with basic knowledge of Express, you can start building on Sails. 
+
+Time will fail me to talk about all it's benefits here. Click this link to learn more about why i chose it and how to get started (....link goes here....)
+
+Pug (formerly Jade), is the templating engine used. You'll get a hang of it in 15 minutes or less.
+
+Happy coding🖥️💪.
 
 
 ### Links
