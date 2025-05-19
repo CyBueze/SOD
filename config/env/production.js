@@ -268,7 +268,7 @@ module.exports = {
      onlyAllowOrigins: [
        'https://school-of-destiny-intl.onrender.com',
     //   'https://staging.example.com',
-    // ],
+     ],
 
 
     /***************************************************************************
