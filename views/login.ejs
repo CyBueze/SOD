@@ -1,0 +1,13 @@
+<div class="w-full max-w-sm p-8 space-y-4 bg-white rounded shadow">
+    <h1 class="text-xl font-semibold text-center">Login</h1>
+    
+    <% if (error) { %>
+  <div class="alert alert-error mb-4"><%= error %></div>
+    <% } %>
+
+    <form action="/login" method="POST" class="space-y-4">
+      <input name="email" type="email" placeholder="Email" class="input input-bordered w-full" />
+      <input name="password" type="password" placeholder="Password" class="input input-bordered w-full" />
+      <button type="submit" class="btn btn-primary w-full">Login</button>
+    </form>
+  </div>
