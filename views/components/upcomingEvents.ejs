@@ -6,16 +6,23 @@
   
 <div x-data="{ showModal: false, currentImage: '', currentTitle: '' }">
   <!-- Flyer Card -->
+<div class="w-full px-4">
 <div 
-  class="w-full mt-6 mb-2 px-4 h-40 overflow-hidden rounded-2xl cursor-pointer"
+  class="w-full mt-6 mb-2 px-4 h-48 overflow-hidden rounded-2xl cursor-pointer"
   @click="showModal = true; currentImage = '/images/event1.jpg'; currentTitle = 'Youth Revival Conference'"
   >
   <img src="/images/event1.jpg" alt="" class="w-full h-full object-cover object-center rounded-2xl">
 </div>
 
-<a href="#" class="py-2 px-3 border-[0.5px] border-gray-700 text-xs font-semibold rounded">
+<div class="w-full px-4 mb-4 mt-4">
+  <div class="w-full max-w-md mx-auto">
+    <a href="#"
+       class="block text-center py-2 px-3 border-[1px] border-black text-xs font-semibold rounded">
       RSVP for this event
     </a>
+  </div>
+</div>
+</div>
 
 <!-- Modal -->
   <div x-show="showModal" 
