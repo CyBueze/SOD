@@ -7,6 +7,7 @@
     <title><%= title %></title>
 
     <!-- TailwindCSS + DaisyUI -->
+    <link rel="stylesheet" href="/css/main.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -16,7 +17,7 @@
     <!-- Alpine.js -->
     <script src="https://unpkg.com/alpinejs" defer></script>
   </head>
-  <body>
+  <body class="mb-80">
     <%- include ("../components/navbar") %>
     <div class="px-2 pt-8">
       <%- body %>
