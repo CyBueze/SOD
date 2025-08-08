@@ -21,6 +21,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.18.1",
     "morgan": "^1.10.1",
+    "multer": "^2.0.2",
     "pocketbase": "^0.26.0"
   },
   "devDependencies": {
