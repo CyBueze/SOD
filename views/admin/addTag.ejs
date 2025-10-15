@@ -1,0 +1,18 @@
+<div>
+  <div class="card">
+    <header>
+      <h2>Add Tag</h2>
+      <p>Add a sermon tag e.g Love, Trauma</p>
+    </header>
+    <section>
+      <form action="/admin/addTag" method="POST" class="form flex-col gap-2">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div>
+          <label for="tagName">Tag name:</label>
+          <input type="text" id="tagName" name="tagName" placeholder="Add a tag name">
+        </div>
+        <button type="submit" class="btn">Add Tag</button>
+      </form>
+    </section>
+  </div>
+</div>

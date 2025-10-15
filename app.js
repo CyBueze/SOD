@@ -1,11 +1,16 @@
 import "dotenv/config";
 import express from "express";
 import expressLayout from "express-ejs-layouts";
+import mongoose from "mongoose"
 import session from "express-session"
+import csrf from '@dr.pogodin/csurf';
+import cookieParser from "cookie-parser"
 import morgan from "morgan"
 import authRoutes from "./routes/authRoutes.js"
-import dashboardRoutes from "./routes/dashboardRoutes.js"
-import {supabase} from "./config/supabase.js"
+import adminRoutes from "./routes/admin.routes.js"
+
+// setup route middlewares
+const csrfProtection = csrf({ cookie: true })
 
 
 const app = express();
@@ -23,49 +28,38 @@ app.use(session({
   saveUninitialized: false,
 }));
 
+// we need this because "cookie" is true in csrfProtection
+app.use(cookieParser())
+app.use(csrfProtection);
+
+// mske crsf globally accesible
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
+
+app.use((req, res, next) => {
+  res.locals.title = "School of Destiny International"; // default title
+  next();
+});
+
+
+
 app.use(morgan('dev'));
 
+app.use("/admin", adminRoutes)
 app.use("/", authRoutes);
-app.use("/dashboard", dashboardRoutes)
-app.get("/test", async(req, res)=>{
-  try{
-    const { data, error } = await supabase.from('sermons').select('*').limit(1)
-    
-    if (error) {
-      console.log('Connection error:', error.message)
-      res.json({ status: 'error', message: error.message })
-    } else {
-      console.log(data)
-      res.json({ status: 'success', message: 'Connected to Supabase!' })
-    }
-  }catch(err){
-    console.log(err)
-  }
-})
 
-app.get("/debug", async(req, res)=>{
-  try{
-    // Remove the limit to see everything
-    const { data, error } = await supabase
-      .from('sermons')
-      .select('*')
-    
-    console.log('Error:', error)
-    console.log('Data:', data)
-    console.log('Data length:', data?.length)
-    
-    res.json({ 
-      error: error,
-      data: data,
-      count: data?.length || 0
-    })
-  }catch(err){
-    console.log('Catch error:', err)
-    res.json({ status: 'error', message: err.message })
-  }
-})
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+
+
+mongoose.connect(process.env.MONGODB_URI)
+.then(()=>{
+  console.log("Connected to database")
+  app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
+}).catch((err)=>{
+  console.log("Error connecting to mongodb", err)
+})

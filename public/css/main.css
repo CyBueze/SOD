@@ -22,3 +22,7 @@ body {
   font-family: 'paragraph', sans-serif;
 }
 
+[x-cloak] {
+    display: none !important;
+}
+

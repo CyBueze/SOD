@@ -1,0 +1,24 @@
+<div>
+  <h1>Admin Dashboard</h1>
+  
+  <section class="flex flex-col gap-2">
+  <form action="/admin/addSermon">
+    <button class="btn">Add Sermon</button>
+  </form>
+  <form action="/admin/addTag">
+    <button class="btn bg-amber-500">Add Tag</button>
+  </form>
+</section>
+
+<section>
+  <% if (tags.length === 0){ %>
+    <p>No tags yet. Click here <a href="/admin/addTag">Add Tags</a> to add.</p>
+  <%}else{%>
+    <ul>
+      <% tags.forEach(tag => { %>
+        <li><%= tag.name %></li>
+      <%})%>
+    </ul>
+  <% } %>
+</section>
+</div>

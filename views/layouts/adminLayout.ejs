@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title><%= title %> - School of Destiny International</title>
 
-    <!-- TailwindCSS + DaisyUI -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- TailwindCSS + BasecoatUI -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.2/dist/basecoat.cdn.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/basecoat-css@0.3.2/dist/js/all.min.js" defer></script>
 
     <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@1.9.4"></script>
@@ -18,7 +18,7 @@
     <script src="https://unpkg.com/alpinejs" defer></script>
   </head>
   <body class="mb-8">
-    <%- include ("../components/navbar") %>
+    <%- include ("../admin/components/navbar") %>
     <div class="px-2 pt-8">
       <%- body %>
     </div>
