@@ -6,14 +6,17 @@
   
   
 <!-- The clickable options -->
-<div class="flex items-center justify-between text-xs mx-4">
-  <div class="space-x-2 text-gray-400">
-    <a href="" class="font-bold text-black bg-purple-200 p-2 rounded-lg">Emotions & Love</a>
-    <a href="">Finances</a>
-    <a href="">Trauma</a>
-    
+<div class="relative flex items-center justify-between text-xs mx-4">
+  <div class="flex flex-1 mr-2 space-x-2 overflow-x-auto text-gray-400 scrollbar-hidden">
+    <%tags.forEach(tag =>{%>
+      <a href="/tags/<%=tag._id%>" class="font-bold text-black bg-purple-200 p-2 rounded-lg flex-shrink-0 whitespace-nowrap"><%=tag.name%></a>
+    <%})%>
   </div>
-  <a href="" class="font-bold"> View more ></a>
+  
+  <div class="absolute right-14 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+
+  
+  <a href="/sermons" class="font-bold flex-shrink-0 whitespace-nowrap z-10 "> View more ></a>
 </div>
 
 <!-- The scrollable sermons-->

@@ -6,7 +6,7 @@ import session from "express-session"
 import csrf from '@dr.pogodin/csurf';
 import cookieParser from "cookie-parser"
 import morgan from "morgan"
-import authRoutes from "./routes/authRoutes.js"
+import indexRoutes from "./routes/index.routes.js"
 import adminRoutes from "./routes/admin.routes.js"
 
 // setup route middlewares
@@ -48,7 +48,7 @@ app.use((req, res, next) => {
 app.use(morgan('dev'));
 
 app.use("/admin", adminRoutes)
-app.use("/", authRoutes);
+app.use("/", indexRoutes);
 
 
 const PORT = process.env.PORT || 3000;
